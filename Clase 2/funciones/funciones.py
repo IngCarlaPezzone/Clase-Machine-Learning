@@ -274,11 +274,13 @@ def indexall(sub,st):
     if type(st) == str:
         for i in range(len(st)):
             try:
-                ind = (st.index(sub,i,-1))
-                if ind not in tu: tu.append(ind)
+                ind = (st.index(sub,i,len(st)))
+                if ind not in tu: 
+                    tu.append(ind)
             except ValueError:
                 continue
-        if tu == []: return None
+        if tu == []: 
+            return None
         return tuple(tu)
     if type(st) == list or type(st) == tuple:
         for i in range(len(st)):
